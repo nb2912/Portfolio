@@ -1,0 +1,258 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #180036;
+    color: #f0f0f0;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    padding-top: 4rem; /* Adjust for fixed header */
+}
+
+/* Header Styles */
+header {
+    background-color: #180036;
+    padding: 1rem 2rem;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    border-bottom: 4px solid transparent;
+    border-image: linear-gradient(to right, #6a11cb, #0b74da) 1;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #0b74da;
+}
+
+#theme-toggle {
+    background-color: #fff;
+    color: #333;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+#theme-toggle.dark-mode {
+    background-color: #333;
+    color: #fff;
+}
+
+/* Hero Section */
+#hero {
+    text-align: center;
+    padding: 5rem 0;
+    background: linear-gradient(120deg, #0b74da, #6a11cb);
+    color: white;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    animation: fadeInSlideUp 1.5s ease-in-out forwards;
+}
+
+@keyframes fadeInSlideUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hero-container {
+    display: flex;
+    align-items: center; /* Aligns the text and image vertically centered */
+}
+
+.profile-image {
+    width: 200px;  /* Adjust as needed */
+    height: 200px; /* Adjust as needed */
+    border-radius: 50%; /* Makes the image circular */
+    border: 5px solid rgb(135, 223, 239); /* Highlight circumference with a colored border */
+    margin-right: 20px; /* Adds space between image and text */
+    object-fit: cover; /* Ensures the image is contained within the circle */
+}
+
+
+#hero h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+#hero p {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.btn {
+    padding: 0.75rem 1.5rem;
+    background-color: #fff;
+    color: #0b74da;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #0b74da;
+    color: white;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+    transform: translateY(-2px);
+}
+
+/* Section Styles */
+section {
+    padding: 5rem 2rem;
+    background: linear-gradient(135deg, #180036 0%, #320080 100%);
+    border-radius: 10px;
+    margin: 20px;
+    color: #edecf3;
+    /* opacity: 0; */
+    transform: translateY(50px);
+    transition: opacity 0.8s ease-in-out, transform 0.8s ease-in-out;
+}
+
+body.loaded section {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #f0f0f0;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.skills-container, .projects-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+
+.skill, .project {
+    background: #515cc6;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    flex: 1;
+    min-width: 250px;
+    color: #ccc;
+    position: relative;
+    z-index: 1;
+}
+
+.skill:hover, .project:hover {
+    transform: translateY(-10px) scale(1.05);
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.5);
+    z-index: 2;
+}
+
+/* Footer Styles */
+footer {
+    padding-top: 10px;
+    text-align: center;
+    background-color: #180036;
+    color: #fff;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Social Links */
+.social-links {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.social-links a {
+    transition: transform 0.3s ease;
+}
+
+.social-links a img {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+    filter: invert(100%);
+}
+
+.social-links a:hover {
+    transform: scale(1.2) rotate(360deg);
+}
+
+body.light-mode .social-links a img {
+    filter: invert(0%);
+}
+
+/* Light Mode */
+body.light-mode {
+    background-color: #f0f0f0;
+    color: #121212;
+}
+
+body.light-mode header {
+    background-color: #fff;
+}
+
+body.light-mode nav ul li a {
+    color: #333;
+}
+
+body.light-mode #hero {
+    background: linear-gradient(120deg, #f093fb, #f5576c);
+}
+
+body.light-mode section {
+    background-color: #f0f0f0;
+    color: #333;
+}
+
+body.light-mode .skill, body.light-mode .project {
+    background-color: #fff;
+    color: #333;
+}
+
+body.light-mode footer {
+    background-color: #fff;
+    color: #333;
+}
